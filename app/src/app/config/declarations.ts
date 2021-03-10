@@ -15,6 +15,10 @@ window['neutrinos'] = {
 }
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-formincidentComponent
+import { formincidentComponent } from '../components/formincidentComponent/formincident.component';
+//CORE_REFERENCE_IMPORT-homeComponent
+import { homeComponent } from '../components/homeComponent/home.component';
 
 /**
  * Reads datasource object and injects the datasource object into window object
@@ -42,6 +46,10 @@ export const appDeclarations = [
   PageNotFoundComponent,
   ArtImgSrcDirective,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-formincidentComponent
+formincidentComponent,
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-homeComponent
+homeComponent,
 
 ];
 
@@ -68,5 +76,5 @@ export const appProviders = [
 */
 
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
-export const appRoutes = [{ path: '', redirectTo: '/', pathMatch: 'full' }, { path: '**', component: PageNotFoundComponent }];
+export const appRoutes = [{path: 'home', component: homeComponent},{path: '', redirectTo: 'home', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END

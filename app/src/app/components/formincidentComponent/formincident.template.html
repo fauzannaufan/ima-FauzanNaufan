@@ -1,0 +1,34 @@
+<div fxLayout="column wrap" fxLayoutGap="16px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+  <div>
+    <h3>Add Incident</h3>
+  </div>
+  <form [formGroup]="incidentform">
+    <div fxLayout="column wrap" fxLayoutGap="16px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+        <input matInput placeholder="enter subject" [required]="true" formControlName="subject">
+        <mat-error align="end" *ngIf="incidentform.controls.subject.errors?.pattern">Only alphabet!</mat-error>
+        <mat-error align="end" *ngIf="incidentform.controls.subject.errors?.required">Fill this field!</mat-error>
+        <mat-label>Subject</mat-label>
+      </mat-form-field>
+      <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+        <input matInput placeholder="enter description" [required]="true" formControlName="description">
+        <mat-error align="end" *ngIf="incidentform.controls.description.errors?.pattern">Only alphabet and numbers!</mat-error>
+        <mat-error align="end" *ngIf="incidentform.controls.description.errors?.required">Fill this field!</mat-error>
+        <mat-label>Description</mat-label>
+      </mat-form-field>
+      <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+        <input matInput placeholder="enter priority" [required]="true" formControlName="priority">
+        <mat-error align="end" *ngIf="incidentform.controls.priority.errors?.pattern || incidentform.controls.priority.errors?.min || incidentform.controls.priority.errors?.max">Must be number between 1 and 5</mat-error>
+        <mat-error align="end" *ngIf="incidentform.controls.priority.errors?.required">Fill this field!</mat-error>
+        <mat-label>Priority</mat-label>
+      </mat-form-field>
+      <mat-form-field [appearance]="&apos;legacy&apos;">
+        <input matInput placeholder="Incident Date" [matDatepicker]="picker" formControlName="incidentdate" [min]="date" [required]="true" [disabled]="false">
+        <mat-datepicker-toggle matSuffix [for]="picker" disabled="false"></mat-datepicker-toggle>
+        <mat-datepicker #picker type="date" [disabled]="false"></mat-datepicker>
+        <mat-error align="end" *ngIf="incidentform.controls.incidentdate.errors?.required">Fill this field!</mat-error>
+      </mat-form-field>
+      <div fxLayout="row wrap" fxLayoutGap="16px" fxLayoutAlign="none stretch" [fxShow]="true" [fxHide]="false"><button mat-button color="primary" (click)="closeDialog()">Cancel</button><button mat-raised-button color="primary" (click)="onSubmit()" type="submit">Submit</button></div>
+    </div>
+  </form>
+</div>

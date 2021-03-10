@@ -2,3 +2,24 @@
 
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "nDefaults.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+body {
+    font-family: Work Sans;
+}
+
+.header {
+    background-color: yellow;
+    padding: 16px;
+}
+
+.mat-header-row .mat-header-cell {
+    background-color: darkblue;
+    color: white;
+    font-weight: bold;
+}
+
+.mat-row {
+    background-color: lightblue;
+}

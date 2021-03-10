@@ -1,0 +1,14 @@
+{
+    "appPageId": "06c7e3a1-2e56-c717-303e-ee8a50bb539d",
+    "appPageName": "formincident",
+    "componentName": "formincidentComponent",
+    "selectorName": "bh-formincident",
+    "htmlFileName": "formincident.template.html",
+    "tsFileName": "formincident.component.ts",
+    "createDate": "2021-03-09T08:51:39.881Z",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}

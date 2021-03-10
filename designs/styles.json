@@ -1,1 +1,8 @@
-{"classes":[]}
+{
+    "classes": [
+        "header",
+        "mat-header-row",
+        "mat-header-cell",
+        "mat-row"
+    ]
+}
