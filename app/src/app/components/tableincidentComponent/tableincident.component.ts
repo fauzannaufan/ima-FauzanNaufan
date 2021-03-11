@@ -1,6 +1,7 @@
 /*DEFAULT GENERATED TEMPLATE. DO NOT CHANGE SELECTOR TEMPLATE_URL AND CLASS NAME*/
 import { Component, OnInit } from '@angular/core'
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
+import {incidentservice} from '../../sd-services/incidentservice';
 
 /*
 Client Service import Example:
@@ -36,11 +37,15 @@ export class tableincidentComponent extends NBaseComponent implements OnInit {
         }
     ]
 
-    constructor() {
+    constructor(public incs:incidentservice) {
         super();
     }
 
     ngOnInit() {
+        this.getIncident();
+    }
 
+    async getIncident() {
+        await this.incs.getIncList();
     }
 }

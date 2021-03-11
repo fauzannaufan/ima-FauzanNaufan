@@ -1,0 +1,138 @@
+[
+    {
+        "id": "sd_pGgBY9pdYFY1YvIB",
+        "type": "tab",
+        "createdDate": "2021-03-11T08:56:25.165Z",
+        "relativeParentPath": "",
+        "label": "incidentservice",
+        "disabled": false,
+        "info": "",
+        "generateNext": true,
+        "serviceName": "incidentservice"
+    },
+    {
+        "id": "sd_NnL0lGy6wXd7a1AQ",
+        "type": "Start",
+        "z": "sd_pGgBY9pdYFY1YvIB",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "getIncList",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "getIncList",
+        "category": "General",
+        "__n_excludedFromValidation__": {},
+        "x": 60,
+        "y": 60,
+        "wires": [
+            [
+                "sd_NeoSpvYhNN1F72P4"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "incidentservice"
+    },
+    {
+        "id": "sd_6On7SYaCEf14uaOq",
+        "type": "Start",
+        "z": "sd_pGgBY9pdYFY1YvIB",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "addIncident",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "subject",
+                "defaultValue": {
+                    "type": "str",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "description",
+                "defaultValue": {
+                    "type": "str",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "priority",
+                "defaultValue": {
+                    "type": "num",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "addIncident",
+        "category": "General",
+        "__n_excludedFromValidation__": {},
+        "x": 60,
+        "y": 180,
+        "wires": [
+            [
+                "sd_gDLfFwi0Uuu2htUz"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "incidentservice"
+    },
+    {
+        "id": "sd_NeoSpvYhNN1F72P4",
+        "type": "Log",
+        "z": "sd_pGgBY9pdYFY1YvIB",
+        "viewType": "client",
+        "nodeType": "flow",
+        "name": "log1",
+        "outputs": 0,
+        "logObject": "\"Getting incident data\"",
+        "functionName": "log1",
+        "category": "General",
+        "__ssdTypeInputs__": {
+            "logObject": {
+                "type": "str",
+                "value": "Getting incident data",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 205,
+        "y": 60,
+        "wires": [],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_gDLfFwi0Uuu2htUz",
+        "type": "Script",
+        "z": "sd_pGgBY9pdYFY1YvIB",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "script1",
+        "script": "console.log(bh.input);",
+        "functionName": "script1",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 205,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "generateNext": false,
+        "generated": true
+    }
+]

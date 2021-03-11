@@ -4,6 +4,7 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import {MatDialogRef} from '@angular/material/dialog';
 import {FormBuilder,Validators}  from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {incidentservice} from '../../sd-services/incidentservice'
 
 /*
 Client Service import Example:
@@ -25,7 +26,11 @@ export class formincidentComponent extends NBaseComponent implements OnInit {
     incidentform;
     date;
 
-    constructor(public dialogRef: MatDialogRef<formincidentComponent>, public fb: FormBuilder, public snackBar: MatSnackBar) {
+    constructor(public dialogRef: MatDialogRef<formincidentComponent>,
+        public fb: FormBuilder,
+        public snackBar: MatSnackBar,
+        public incs: incidentservice
+    ) {
         super();
     }
 
@@ -44,10 +49,16 @@ export class formincidentComponent extends NBaseComponent implements OnInit {
         this.dialogRef.close();
     }
 
+    async insertIncident() {
+        let formdata = this.incidentform.value;
+        await this.incs.addIncident(formdata?.subject, formdata?.description, Number(formdata?.priority), formdata?.incidentdate);
+    }
+
     onSubmit() {
         this.incidentform.markAllAsTouched();
         if (this.incidentform.valid) {
-            let snackBarRef = this.snackBar.open('Incident submitted successfully', '', {
+            this.insertIncident();
+            this.snackBar.open('Incident submitted successfully', '', {
                 duration: 2000,
             });
             this.dialogRef.close(this.incidentform.value);

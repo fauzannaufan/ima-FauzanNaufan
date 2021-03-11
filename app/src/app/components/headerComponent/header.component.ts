@@ -28,7 +28,6 @@ export class headerComponent extends NBaseComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(window.location);
         if (window.location.pathname === "/home") {
             this.showAddButton = true;
         }
