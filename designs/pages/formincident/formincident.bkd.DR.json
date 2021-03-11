@@ -71,7 +71,7 @@
             "designerReference": [
                 {
                     "_key": "style",
-                    "_value": "",
+                    "_value": "text-align:center",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -421,7 +421,7 @@
                         },
                         {
                             "_key": "placeholder",
-                            "_value": "enter subject",
+                            "_value": "Enter Subject",
                             "_type": "kv",
                             "_attrDef": "p",
                             "_useAsLabel": true
@@ -434,7 +434,7 @@
                         },
                         {
                             "_key": "[appearance]",
-                            "_value": "'legacy'",
+                            "_value": "'outline'",
                             "_type": "a",
                             "_attrDef": "p"
                         },
@@ -538,7 +538,7 @@
                         },
                         {
                             "_key": "Label",
-                            "_value": "Subject",
+                            "_value": "",
                             "_type": "a",
                             "_attrDef": "p",
                             "_visibility": true
@@ -612,7 +612,7 @@
                         },
                         {
                             "_key": "placeholder",
-                            "_value": "enter description",
+                            "_value": "Enter Description",
                             "_type": "kv",
                             "_attrDef": "p",
                             "_useAsLabel": true
@@ -625,7 +625,7 @@
                         },
                         {
                             "_key": "[appearance]",
-                            "_value": "'legacy'",
+                            "_value": "'outline'",
                             "_type": "a",
                             "_attrDef": "p"
                         },
@@ -729,7 +729,7 @@
                         },
                         {
                             "_key": "Label",
-                            "_value": "Description",
+                            "_value": "",
                             "_type": "a",
                             "_attrDef": "p",
                             "_visibility": true
@@ -803,7 +803,7 @@
                         },
                         {
                             "_key": "placeholder",
-                            "_value": "enter priority",
+                            "_value": "Enter Priority",
                             "_type": "kv",
                             "_attrDef": "p",
                             "_useAsLabel": true
@@ -816,7 +816,7 @@
                         },
                         {
                             "_key": "[appearance]",
-                            "_value": "'legacy'",
+                            "_value": "'outline'",
                             "_type": "a",
                             "_attrDef": "p"
                         },
@@ -920,7 +920,7 @@
                         },
                         {
                             "_key": "Label",
-                            "_value": "Priority",
+                            "_value": "",
                             "_type": "a",
                             "_attrDef": "p",
                             "_visibility": true
@@ -994,14 +994,14 @@
                         },
                         {
                             "_key": "placeholder",
-                            "_value": "Incident Date",
+                            "_value": "Choose Incident Date",
                             "_type": "kv",
                             "_attrDef": "p",
                             "_useAsLabel": true
                         },
                         {
                             "_key": "[appearance]",
-                            "_value": "'legacy'",
+                            "_value": "'outline'",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -1234,17 +1234,10 @@
                         }
                     ]
                 },
-                "f5538a16-f6f8-a94a-0d31-83c1aac81ffd": {
-                    "paletteKey": "FlexLayoutRow",
+                "215cfa33-6efb-95b3-e734-c8dd12e6ec14": {
+                    "paletteKey": "NG-RaisedButton",
                     "parentEditorKey": "b3458185-ddcf-8aba-ab71-736150583323",
                     "designerReference": [
-                        {
-                            "_key": "componentLabel",
-                            "_value": "Row",
-                            "_type": "kv",
-                            "_attrDef": "p",
-                            "_useAsLabel": true
-                        },
                         {
                             "_key": "style",
                             "_value": "",
@@ -1258,170 +1251,49 @@
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "fxFlex",
+                            "_key": "buttonname",
+                            "_value": "Submit",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_useAsLabel": true
+                        },
+                        {
+                            "_key": "color",
+                            "_value": "primary",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "onSubmit()",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[disabled]",
                             "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "fxLayoutGap",
-                            "_value": "16px",
+                            "_key": "[disableRipple]",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "wrap",
-                            "_value": "wrap",
-                            "_type": "a",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "layoutAlign",
-                            "_value": "none",
-                            "_type": "a",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "pLayoutAlign",
-                            "_value": "stretch",
-                            "_type": "a",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[fxShow]",
-                            "_value": "true",
+                            "_key": "type",
+                            "_value": "submit",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "[fxHide]",
-                            "_value": "false",
+                            "_key": "routerLink",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         }
-                    ],
-                    "c18968a3-4be3-daaf-756a-4b5f408c00b7": {
-                        "paletteKey": "NG-button",
-                        "parentEditorKey": "f5538a16-f6f8-a94a-0d31-83c1aac81ffd",
-                        "designerReference": [
-                            {
-                                "_key": "style",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "class",
-                                "_value": "",
-                                "_type": "dav",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "buttonname",
-                                "_value": "Cancel",
-                                "_type": "a",
-                                "_attrDef": "p",
-                                "_useAsLabel": true
-                            },
-                            {
-                                "_key": "color",
-                                "_value": "primary",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "(click)",
-                                "_value": "closeDialog()",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "[disabled]",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "[disableRipple]",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "type",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "routerLink",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            }
-                        ]
-                    },
-                    "215cfa33-6efb-95b3-e734-c8dd12e6ec14": {
-                        "paletteKey": "NG-RaisedButton",
-                        "parentEditorKey": "f5538a16-f6f8-a94a-0d31-83c1aac81ffd",
-                        "designerReference": [
-                            {
-                                "_key": "style",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "class",
-                                "_value": "",
-                                "_type": "dav",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "buttonname",
-                                "_value": "Submit",
-                                "_type": "a",
-                                "_attrDef": "p",
-                                "_useAsLabel": true
-                            },
-                            {
-                                "_key": "color",
-                                "_value": "primary",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "(click)",
-                                "_value": "onSubmit()",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "[disabled]",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "[disableRipple]",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "type",
-                                "_value": "submit",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "routerLink",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            }
-                        ]
-                    }
+                    ]
                 }
             }
         }

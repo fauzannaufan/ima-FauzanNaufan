@@ -5,6 +5,10 @@
             "component": "homeComponent"
         },
         {
+            "path": "incidentlist",
+            "component": "tableincidentComponent"
+        },
+        {
             "path": "''",
             "redirectTo": "home",
             "pathMatch": "full",

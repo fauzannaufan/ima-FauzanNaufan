@@ -1,0 +1,14 @@
+{
+    "appPageId": "8f2496cd-8f3b-2c77-007c-629a2f34ea3e",
+    "appPageName": "tableincident",
+    "componentName": "tableincidentComponent",
+    "selectorName": "bh-tableincident",
+    "htmlFileName": "tableincident.template.html",
+    "tsFileName": "tableincident.component.ts",
+    "createDate": "2021-03-10T05:33:28.270Z",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}

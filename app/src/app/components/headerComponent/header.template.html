@@ -1,0 +1,16 @@
+<div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+  <header class="header">
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
+      <div>
+        <h3>Incident Details</h3>
+      </div>
+      <div fxLayout="row wrap" fxLayoutGap="16px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-mini-fab *ngIf="showAddButton" color="primary" (click)="openDialog()">
+          <mat-icon>add</mat-icon>
+        </button><button mat-mini-fab routerLink="/home" color="primary">
+          <mat-icon>home</mat-icon>
+        </button><button mat-mini-fab color="primary">
+          <mat-icon>logout</mat-icon>
+        </button></div>
+    </div>
+  </header>
+</div>
