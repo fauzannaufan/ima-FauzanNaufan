@@ -34,31 +34,14 @@
                     "description": "",
                     "consumes": [],
                     "produces": [],
-                    "parameters": [
-                        {
-                            "in": "body",
-                            "name": "subject",
-                            "description": "Subject",
-                            "required": false
-                        }
-                    ],
+                    "parameters": [],
                     "responses": {}
                 }
             }
         },
-        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
-            "params": [
-                {
-                    "key": "subject",
-                    "desc": "Subject",
-                    "type": "body",
-                    "required": false,
-                    "rowId": "sd_cy1CXXQQl380I4LA",
-                    "valid": true
-                }
-            ],
+            "params": [],
             "produces": [],
             "consumes": []
         },
@@ -168,7 +151,8 @@
         "y": 80,
         "wires": [],
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "database"
     },
     {
         "id": "sd_6G5oEIVelT3Wov17",
@@ -186,8 +170,8 @@
         "functionName": "sd_6G5oEIVelT3Wov17",
         "category": "General",
         "__n_excludedFromValidation__": {},
-        "x": 245,
-        "y": 340,
+        "x": 645,
+        "y": 80,
         "wires": [
             [
                 "sd_3WVieZqRg3kIgqN8"
@@ -216,8 +200,8 @@
             }
         },
         "__n_excludedFromValidation__": {},
-        "x": 385,
-        "y": 340,
+        "x": 785,
+        "y": 80,
         "wires": [],
         "generateNext": false,
         "generated": true
@@ -310,7 +294,6 @@
         "nodeType": "flow",
         "name": "",
         "databaseConfig": "sd_TtOHHkMFFcjyiYvv",
-        "queryType": "",
         "resultMap": {
             "type": "bh.local",
             "value": "result"
@@ -318,11 +301,10 @@
         "multipleQuery": "",
         "singleQuery": {
             "type": "str",
-            "value": "SELECT * FROM public.incidents;"
+            "value": "SELECT * FROM public.incidents ORDER BY id;"
         },
         "inputs": 1,
         "outputs": 1,
-        "params": [],
         "paramMappingObj": {
             "type": "bh.local",
             "value": ""
@@ -384,5 +366,325 @@
         "wires": [],
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_i2xnLoFGRYUl4aQA",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_021vYcqlWhwA3RZa",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_TtOHHkMFFcjyiYvv",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "result"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "str",
+            "value": "UPDATE public.incidents SET subject=$1, description=$2, priority=$3, \"date\"=$4 WHERE id=$5;"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "paramMappingObj": {
+            "type": "bh.local",
+            "value": "parameters"
+        },
+        "dbType": "postgres",
+        "functionName": "sd_i2xnLoFGRYUl4aQA",
+        "category": "Storage",
+        "__n_excludedFromValidation__": {},
+        "x": 345,
+        "y": 300,
+        "wires": [
+            [
+                "sd_IkRKdmA6AuFRGlWk"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_IkRKdmA6AuFRGlWk",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_021vYcqlWhwA3RZa",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "result",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.result",
+            "send": "bh.local.result"
+        },
+        "inputs": 1,
+        "outputs": 0,
+        "editableListData": {
+            "headers": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_IkRKdmA6AuFRGlWk",
+        "category": "HTTP",
+        "__n_excludedFromValidation__": {},
+        "x": 485,
+        "y": 300,
+        "wires": [],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_qKWfJVHNZLQGZBaS",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_021vYcqlWhwA3RZa",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "let reqBody = bh.input.body;\n\nbh.local.parameters = [reqBody?.subject, reqBody?.description, reqBody?.priority, reqBody?.date, reqBody?.id];",
+        "functionName": "sd_qKWfJVHNZLQGZBaS",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 205,
+        "y": 300,
+        "wires": [
+            [
+                "sd_i2xnLoFGRYUl4aQA"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_kzcuIiCVipXPtHAV",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_021vYcqlWhwA3RZa",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "update incident",
+        "path": "/updateincident",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "/updateincident": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 80,
+        "y": 300,
+        "wires": [
+            [
+                "sd_qKWfJVHNZLQGZBaS"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "database",
+        "functionName": "sd_kzcuIiCVipXPtHAV"
+    },
+    {
+        "id": "sd_N560nPWmDEpINHxE",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_021vYcqlWhwA3RZa",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_TtOHHkMFFcjyiYvv",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "result"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "str",
+            "value": "DELETE FROM public.incidents WHERE id=$1;"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "paramMappingObj": {
+            "type": "bh.local",
+            "value": "parameters"
+        },
+        "dbType": "postgres",
+        "functionName": "sd_N560nPWmDEpINHxE",
+        "category": "Storage",
+        "__n_excludedFromValidation__": {},
+        "x": 345,
+        "y": 400,
+        "wires": [
+            [
+                "sd_Odbr3rAWthq8w9GP"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Odbr3rAWthq8w9GP",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_021vYcqlWhwA3RZa",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "result",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.result",
+            "send": "bh.local.result"
+        },
+        "inputs": 1,
+        "outputs": 0,
+        "editableListData": {
+            "headers": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_Odbr3rAWthq8w9GP",
+        "category": "HTTP",
+        "__n_excludedFromValidation__": {},
+        "x": 485,
+        "y": 400,
+        "wires": [],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_47C1CMb2RphazTDy",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_021vYcqlWhwA3RZa",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "let reqBody = bh.input.body;\n\nbh.local.parameters = [reqBody?.id];",
+        "functionName": "sd_47C1CMb2RphazTDy",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 205,
+        "y": 400,
+        "wires": [
+            [
+                "sd_N560nPWmDEpINHxE"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_SsQgnFpmyLEbOpa9",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_021vYcqlWhwA3RZa",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "deleteincident",
+        "path": "/deleteincident",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "/deleteincident": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 80,
+        "y": 400,
+        "wires": [
+            [
+                "sd_47C1CMb2RphazTDy"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "database",
+        "functionName": "sd_SsQgnFpmyLEbOpa9"
     }
 ]

@@ -105,14 +105,7 @@ export class database {
           description: '',
           consumes: [],
           produces: [],
-          parameters: [
-            {
-              in: 'body',
-              name: 'subject',
-              description: 'Subject',
-              required: false,
-            },
-          ],
+          parameters: [],
           responses: {},
         },
       };
@@ -122,14 +115,7 @@ export class database {
         description: '',
         consumes: [],
         produces: [],
-        parameters: [
-          {
-            in: 'body',
-            name: 'subject',
-            description: 'Subject',
-            required: false,
-          },
-        ],
+        parameters: [],
         responses: {},
       };
     }
@@ -207,6 +193,110 @@ export class database {
           //appendnew_next_sd_tDDwUHJdzHaNtynP
         } catch (e) {
           return await this.errorHandler(bh, e, 'sd_tDDwUHJdzHaNtynP');
+        }
+      },
+      this.sdService.getMiddlesWaresBySequenceId(
+        null,
+        'post',
+        this.generatedMiddlewares
+      )
+    );
+
+    if (!this.swaggerDocument['paths']['/updateincident']) {
+      this.swaggerDocument['paths']['/updateincident'] = {
+        post: {
+          summary: '',
+          description: '',
+          consumes: [],
+          produces: [],
+          parameters: [],
+          responses: {},
+        },
+      };
+    } else {
+      this.swaggerDocument['paths']['/updateincident']['post'] = {
+        summary: '',
+        description: '',
+        consumes: [],
+        produces: [],
+        parameters: [],
+        responses: {},
+      };
+    }
+    this.app['post'](
+      `${this.serviceBasePath}/updateincident`,
+      cookieParser(),
+      this.sdService.getMiddlesWaresBySequenceId(
+        null,
+        'pre',
+        this.generatedMiddlewares
+      ),
+
+      async (req, res, next) => {
+        let bh = {};
+        try {
+          bh = this.sdService.__constructDefault(
+            { local: {}, input: {} },
+            req,
+            res,
+            next
+          );
+          bh = await this.sd_qKWfJVHNZLQGZBaS(bh);
+          //appendnew_next_sd_kzcuIiCVipXPtHAV
+        } catch (e) {
+          return await this.errorHandler(bh, e, 'sd_kzcuIiCVipXPtHAV');
+        }
+      },
+      this.sdService.getMiddlesWaresBySequenceId(
+        null,
+        'post',
+        this.generatedMiddlewares
+      )
+    );
+
+    if (!this.swaggerDocument['paths']['/deleteincident']) {
+      this.swaggerDocument['paths']['/deleteincident'] = {
+        post: {
+          summary: '',
+          description: '',
+          consumes: [],
+          produces: [],
+          parameters: [],
+          responses: {},
+        },
+      };
+    } else {
+      this.swaggerDocument['paths']['/deleteincident']['post'] = {
+        summary: '',
+        description: '',
+        consumes: [],
+        produces: [],
+        parameters: [],
+        responses: {},
+      };
+    }
+    this.app['post'](
+      `${this.serviceBasePath}/deleteincident`,
+      cookieParser(),
+      this.sdService.getMiddlesWaresBySequenceId(
+        null,
+        'pre',
+        this.generatedMiddlewares
+      ),
+
+      async (req, res, next) => {
+        let bh = {};
+        try {
+          bh = this.sdService.__constructDefault(
+            { local: {}, input: {} },
+            req,
+            res,
+            next
+          );
+          bh = await this.sd_47C1CMb2RphazTDy(bh);
+          //appendnew_next_sd_SsQgnFpmyLEbOpa9
+        } catch (e) {
+          return await this.errorHandler(bh, e, 'sd_SsQgnFpmyLEbOpa9');
         }
       },
       this.sdService.getMiddlesWaresBySequenceId(
@@ -315,7 +405,7 @@ export class database {
       params = params ? params : [];
       bh.local.result = await new GenericRDBMSOperations().executeSQL(
         connectionName,
-        'SELECT * FROM public.incidents;',
+        'SELECT * FROM public.incidents ORDER BY id;',
         params
       );
       await this.sd_EPeUzfOyfjFlwme3(bh);
@@ -333,6 +423,120 @@ export class database {
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_EPeUzfOyfjFlwme3');
+    }
+  }
+
+  async sd_qKWfJVHNZLQGZBaS(bh) {
+    try {
+      let reqBody = bh.input.body;
+
+      bh.local.parameters = [
+        reqBody?.subject,
+        reqBody?.description,
+        reqBody?.priority,
+        reqBody?.date,
+        reqBody?.id,
+      ];
+      bh = await this.sd_i2xnLoFGRYUl4aQA(bh);
+      //appendnew_next_sd_qKWfJVHNZLQGZBaS
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_qKWfJVHNZLQGZBaS');
+    }
+  }
+
+  async sd_i2xnLoFGRYUl4aQA(bh) {
+    try {
+      let configObj = this.sdService.getConfigObj(
+        'db-config',
+        'sd_TtOHHkMFFcjyiYvv'
+      );
+      let connectionName;
+      if (
+        configObj &&
+        configObj.hasOwnProperty('dbOption') &&
+        configObj.dbOption.hasOwnProperty('name')
+      ) {
+        connectionName = configObj.dbOption.name;
+      } else {
+        throw new Error('Cannot find the selected config name');
+      }
+      let params = bh.local.parameters;
+      params = params ? params : [];
+      bh.local.result = await new GenericRDBMSOperations().executeSQL(
+        connectionName,
+        'UPDATE public.incidents SET subject=$1, description=$2, priority=$3, "date"=$4 WHERE id=$5;',
+        params
+      );
+      await this.sd_IkRKdmA6AuFRGlWk(bh);
+      //appendnew_next_sd_i2xnLoFGRYUl4aQA
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_i2xnLoFGRYUl4aQA');
+    }
+  }
+
+  async sd_IkRKdmA6AuFRGlWk(bh) {
+    try {
+      bh.web.res.status(200).send(bh.local.result);
+
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_IkRKdmA6AuFRGlWk');
+    }
+  }
+
+  async sd_47C1CMb2RphazTDy(bh) {
+    try {
+      let reqBody = bh.input.body;
+
+      bh.local.parameters = [reqBody?.id];
+      bh = await this.sd_N560nPWmDEpINHxE(bh);
+      //appendnew_next_sd_47C1CMb2RphazTDy
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_47C1CMb2RphazTDy');
+    }
+  }
+
+  async sd_N560nPWmDEpINHxE(bh) {
+    try {
+      let configObj = this.sdService.getConfigObj(
+        'db-config',
+        'sd_TtOHHkMFFcjyiYvv'
+      );
+      let connectionName;
+      if (
+        configObj &&
+        configObj.hasOwnProperty('dbOption') &&
+        configObj.dbOption.hasOwnProperty('name')
+      ) {
+        connectionName = configObj.dbOption.name;
+      } else {
+        throw new Error('Cannot find the selected config name');
+      }
+      let params = bh.local.parameters;
+      params = params ? params : [];
+      bh.local.result = await new GenericRDBMSOperations().executeSQL(
+        connectionName,
+        'DELETE FROM public.incidents WHERE id=$1;',
+        params
+      );
+      await this.sd_Odbr3rAWthq8w9GP(bh);
+      //appendnew_next_sd_N560nPWmDEpINHxE
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_N560nPWmDEpINHxE');
+    }
+  }
+
+  async sd_Odbr3rAWthq8w9GP(bh) {
+    try {
+      bh.web.res.status(200).send(bh.local.result);
+
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_Odbr3rAWthq8w9GP');
     }
   }
 

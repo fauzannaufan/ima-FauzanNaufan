@@ -155,7 +155,8 @@
             []
         ],
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "incidentservice"
     },
     {
         "id": "sd_nkc1E1VFbAWkt7ht",
@@ -165,14 +166,18 @@
         "nodeType": "flow",
         "name": "",
         "method": "get",
+        "methodMapping": "",
         "methodMappingObj": {},
+        "urlValue": "",
         "urlMapping": "bh.local.apiUrl",
         "urlMappingObj": {
             "mapVarType": "bh.local",
             "mapVarValue": "apiUrl"
         },
         "ret": "json",
+        "retMapping": "",
         "retMappingObj": {},
+        "reqBody": "",
         "reqBodyObj": {
             "mapVarType": "bh",
             "mapVarValue": ""
@@ -184,9 +189,11 @@
         },
         "headers": {},
         "headersObj": [],
+        "headerMapping": "",
         "headerMappingObj": {},
         "params": {},
         "paramsObj": [],
+        "paramMapping": "",
         "paramMappingObj": {},
         "functionName": "sd_nkc1E1VFbAWkt7ht",
         "category": "HTTP",
@@ -197,7 +204,8 @@
             []
         ],
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "incidentservice"
     },
     {
         "id": "sd_VcUJZbInPDLEtXAN",
@@ -287,6 +295,250 @@
         "wires": [
             [
                 "sd_nkc1E1VFbAWkt7ht"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_VY0T5foQKB9w0eYR",
+        "type": "Start",
+        "z": "sd_pGgBY9pdYFY1YvIB",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "editincident",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "subject",
+                "defaultValue": {
+                    "type": "str",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "description",
+                "defaultValue": {
+                    "type": "str",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "priority",
+                "defaultValue": {
+                    "type": "num",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "id",
+                "defaultValue": {
+                    "type": "num",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "editincident",
+        "category": "General",
+        "__n_excludedFromValidation__": {},
+        "x": 65,
+        "y": 280,
+        "wires": [
+            [
+                "sd_XZ9reN0eTNzRnKwu"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "incidentservice"
+    },
+    {
+        "id": "sd_tjA113nzlGVuc73L",
+        "type": "HttpRequest",
+        "z": "sd_pGgBY9pdYFY1YvIB",
+        "viewType": "client",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.apiUrl",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "apiUrl"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "reqBody": "bh.input",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "input"
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_tjA113nzlGVuc73L",
+        "category": "HTTP",
+        "__n_excludedFromValidation__": {},
+        "x": 350,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_XZ9reN0eTNzRnKwu",
+        "type": "Script",
+        "z": "sd_pGgBY9pdYFY1YvIB",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.apiUrl = `${bh.system.environment.properties.ssdURL}updateincident`",
+        "functionName": "sd_XZ9reN0eTNzRnKwu",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 210,
+        "y": 280,
+        "wires": [
+            [
+                "sd_tjA113nzlGVuc73L"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Km84zmHxHNtCChxE",
+        "type": "Start",
+        "z": "sd_pGgBY9pdYFY1YvIB",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "deleteincident",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "id",
+                "defaultValue": {
+                    "type": "num",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "deleteincident",
+        "category": "General",
+        "__n_excludedFromValidation__": {},
+        "x": 65,
+        "y": 380,
+        "wires": [
+            [
+                "sd_GHjY5MRkx8T22G6T"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "incidentservice"
+    },
+    {
+        "id": "sd_9DxxhMnAntkZ07a8",
+        "type": "HttpRequest",
+        "z": "sd_pGgBY9pdYFY1YvIB",
+        "viewType": "client",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.apiUrl",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "apiUrl"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "reqBody": "bh.input",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "input"
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_9DxxhMnAntkZ07a8",
+        "category": "HTTP",
+        "__n_excludedFromValidation__": {},
+        "x": 350,
+        "y": 380,
+        "wires": [
+            []
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_GHjY5MRkx8T22G6T",
+        "type": "Script",
+        "z": "sd_pGgBY9pdYFY1YvIB",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.apiUrl = `${bh.system.environment.properties.ssdURL}deleteincident`",
+        "functionName": "sd_GHjY5MRkx8T22G6T",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [
+                "sd_9DxxhMnAntkZ07a8"
             ]
         ],
         "generateNext": false,

@@ -95,6 +95,71 @@ export class incidentservice {
     }
   }
 
+  async editincident(
+    subject = '',
+    description = '',
+    priority = 0,
+    date: any = undefined,
+    id = 0,
+    ...others
+  ) {
+    try {
+      var bh = {
+        input: {
+          subject: subject,
+          description: description,
+          priority: priority,
+          date: date,
+          id: id,
+        },
+        local: {
+          result: undefined,
+        },
+      };
+      bh = this.sdService.__constructDefault(bh);
+      bh = await this.sd_XZ9reN0eTNzRnKwu(bh);
+      //appendnew_next_editincident
+      return (
+        // formatting output variables
+        {
+          input: {},
+          local: {
+            result: bh.local.result,
+          },
+        }
+      );
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_VY0T5foQKB9w0eYR');
+    }
+  }
+
+  async deleteincident(id = 0, ...others) {
+    try {
+      var bh = {
+        input: {
+          id: id,
+        },
+        local: {
+          result: undefined,
+        },
+      };
+      bh = this.sdService.__constructDefault(bh);
+      bh = await this.sd_GHjY5MRkx8T22G6T(bh);
+      //appendnew_next_deleteincident
+      return (
+        // formatting output variables
+        {
+          input: {},
+          local: {
+            result: bh.local.result,
+          },
+        }
+      );
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_Km84zmHxHNtCChxE');
+    }
+  }
+
   //appendnew_flow_incidentservice_start
 
   async sd_3TSiiQkbpOR0cOj7(bh) {
@@ -164,6 +229,66 @@ export class incidentservice {
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_8vCXE3MLo442d0wl');
+    }
+  }
+
+  async sd_XZ9reN0eTNzRnKwu(bh) {
+    try {
+      bh.local.apiUrl = `${bh.system.environment.properties.ssdURL}updateincident`;
+      bh = await this.sd_tjA113nzlGVuc73L(bh);
+      //appendnew_next_sd_XZ9reN0eTNzRnKwu
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_XZ9reN0eTNzRnKwu');
+    }
+  }
+
+  async sd_tjA113nzlGVuc73L(bh) {
+    try {
+      let requestOptions = {
+        url: bh.local.apiUrl,
+        method: 'post',
+        responseType: 'json',
+        reportProgress: undefined,
+        headers: {},
+        params: {},
+        body: bh.input,
+      };
+      bh.local.result = await this.sdService.nHttpRequest(requestOptions);
+      //appendnew_next_sd_tjA113nzlGVuc73L
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_tjA113nzlGVuc73L');
+    }
+  }
+
+  async sd_GHjY5MRkx8T22G6T(bh) {
+    try {
+      bh.local.apiUrl = `${bh.system.environment.properties.ssdURL}deleteincident`;
+      bh = await this.sd_9DxxhMnAntkZ07a8(bh);
+      //appendnew_next_sd_GHjY5MRkx8T22G6T
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_GHjY5MRkx8T22G6T');
+    }
+  }
+
+  async sd_9DxxhMnAntkZ07a8(bh) {
+    try {
+      let requestOptions = {
+        url: bh.local.apiUrl,
+        method: 'post',
+        responseType: 'json',
+        reportProgress: undefined,
+        headers: {},
+        params: {},
+        body: bh.input,
+      };
+      bh.local.result = await this.sdService.nHttpRequest(requestOptions);
+      //appendnew_next_sd_9DxxhMnAntkZ07a8
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_9DxxhMnAntkZ07a8');
     }
   }
 
