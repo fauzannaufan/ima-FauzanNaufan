@@ -199,6 +199,12 @@
                         "_type": "a",
                         "_attrDef": "p",
                         "_visibility": true
+                    },
+                    {
+                        "_key": "*ngIf",
+                        "_value": "showTable",
+                        "_type": "kv",
+                        "_attrDef": "c"
                     }
                 ],
                 "466ed05b-347e-0216-d3c2-b1997bbaccca": {
@@ -400,7 +406,7 @@
                         },
                         {
                             "_key": "Mapping",
-                            "_value": "{{table.incidentdate}}",
+                            "_value": "{{table.date | date}}",
                             "_type": "ma",
                             "_attrDef": "p",
                             "_useAsLabel": true

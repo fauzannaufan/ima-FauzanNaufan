@@ -38,16 +38,20 @@ export class incidentservice {
     try {
       var bh = {
         input: {},
-        local: {},
+        local: {
+          incidentList: undefined,
+        },
       };
       bh = this.sdService.__constructDefault(bh);
-      this.log1(bh);
+      bh = await this.sd_3TSiiQkbpOR0cOj7(bh);
       //appendnew_next_getIncList
       return (
         // formatting output variables
         {
           input: {},
-          local: {},
+          local: {
+            incidentList: bh.local.incidentList,
+          },
         }
       );
     } catch (e) {
@@ -70,16 +74,20 @@ export class incidentservice {
           priority: priority,
           date: date,
         },
-        local: {},
+        local: {
+          result: undefined,
+        },
       };
       bh = this.sdService.__constructDefault(bh);
-      bh = await this.script1(bh);
+      bh = await this.sd_IMTVy3sdirrRe4Ug(bh);
       //appendnew_next_addIncident
       return (
         // formatting output variables
         {
           input: {},
-          local: {},
+          local: {
+            result: bh.local.result,
+          },
         }
       );
     } catch (e) {
@@ -89,23 +97,73 @@ export class incidentservice {
 
   //appendnew_flow_incidentservice_start
 
-  async log1(bh) {
+  async sd_3TSiiQkbpOR0cOj7(bh) {
     try {
-      console.log(new Date().toLocaleTimeString(), 'Getting incident data');
-      //appendnew_next_log1
+      bh.local.apiUrl = `${bh.system.environment.properties.ssdURL}incidentlist`;
+      bh = await this.sd_nkc1E1VFbAWkt7ht(bh);
+      //appendnew_next_sd_3TSiiQkbpOR0cOj7
       return bh;
     } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_NeoSpvYhNN1F72P4');
+      return await this.errorHandler(bh, e, 'sd_3TSiiQkbpOR0cOj7');
     }
   }
 
-  async script1(bh) {
+  async sd_nkc1E1VFbAWkt7ht(bh) {
     try {
-      console.log(bh.input);
-      //appendnew_next_script1
+      let requestOptions = {
+        url: bh.local.apiUrl,
+        method: 'get',
+        responseType: 'json',
+        reportProgress: undefined,
+        headers: {},
+        params: {},
+        body: undefined,
+      };
+      bh.local.incidentList = await this.sdService.nHttpRequest(requestOptions);
+      //appendnew_next_sd_nkc1E1VFbAWkt7ht
       return bh;
     } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_gDLfFwi0Uuu2htUz');
+      return await this.errorHandler(bh, e, 'sd_nkc1E1VFbAWkt7ht');
+    }
+  }
+
+  async sd_IMTVy3sdirrRe4Ug(bh) {
+    try {
+      bh.local.apiUrl = `${bh.system.environment.properties.ssdURL}incident`;
+      bh = await this.sd_rZ3dtQfQPMwB1bB5(bh);
+      //appendnew_next_sd_IMTVy3sdirrRe4Ug
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_IMTVy3sdirrRe4Ug');
+    }
+  }
+
+  async sd_rZ3dtQfQPMwB1bB5(bh) {
+    try {
+      let requestOptions = {
+        url: bh.local.apiUrl,
+        method: 'post',
+        responseType: 'json',
+        reportProgress: undefined,
+        headers: {},
+        params: {},
+        body: bh.input,
+      };
+      bh.local.result = await this.sdService.nHttpRequest(requestOptions);
+      //appendnew_next_sd_rZ3dtQfQPMwB1bB5
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_rZ3dtQfQPMwB1bB5');
+    }
+  }
+
+  async sd_8vCXE3MLo442d0wl(bh) {
+    try {
+      console.log(new Date().toLocaleTimeString(), bh.error);
+      //appendnew_next_sd_8vCXE3MLo442d0wl
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_8vCXE3MLo442d0wl');
     }
   }
 
@@ -117,13 +175,23 @@ export class incidentservice {
     bh.errorSource = src;
 
     if (
-      false
+      false ||
+      (await this.sd_VcUJZbInPDLEtXAN(bh))
       /*appendnew_next_Catch*/
     ) {
       return bh;
     } else {
       throw e;
     }
+  }
+  async sd_VcUJZbInPDLEtXAN(bh) {
+    const catchConnectedNodes = ['sd_8vCXE3MLo442d0wl'];
+    if (catchConnectedNodes.includes(bh.errorSource)) {
+      return false;
+    }
+    this.sd_8vCXE3MLo442d0wl(bh);
+    //appendnew_next_sd_VcUJZbInPDLEtXAN
+    return true;
   }
   //appendnew_flow_incidentservice_Catch
 }

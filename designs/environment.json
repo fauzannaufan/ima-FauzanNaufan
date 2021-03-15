@@ -14,7 +14,11 @@
             "SSD_DEFAULT_PORT": "server",
             "webAppMountpoint": "both",
             "CLOCK_TOLERANCE": "server",
-            "NGFORAGE_MOBILE_DRIVER": "client"
+            "NGFORAGE_MOBILE_DRIVER": "client",
+            "dbUrl": "server",
+            "dbUsername": "server",
+            "dbPassword": "server",
+            "dbName": "server"
         }
     },
     "dev": {
@@ -32,7 +36,11 @@
             "SSD_DEFAULT_PORT": "8081",
             "webAppMountpoint": "web",
             "CLOCK_TOLERANCE": "5",
-            "NGFORAGE_MOBILE_DRIVER": "INDEXED_DB"
+            "NGFORAGE_MOBILE_DRIVER": "INDEXED_DB",
+            "dbUrl": "139.59.247.177",
+            "dbUsername": "postgres",
+            "dbPassword": "@D3lt44pp1234*",
+            "dbName": "ima_noufan"
         }
     },
     "prod": {
@@ -50,7 +58,11 @@
             "SSD_DEFAULT_PORT": "8081",
             "webAppMountpoint": "web",
             "CLOCK_TOLERANCE": "5",
-            "NGFORAGE_MOBILE_DRIVER": "INDEXED_DB"
+            "NGFORAGE_MOBILE_DRIVER": "INDEXED_DB",
+            "dbUrl": "139.59.247.177",
+            "dbUsername": "postgres",
+            "dbPassword": "@D3lt44pp1234*",
+            "dbName": "ima_noufan"
         }
     }
 }

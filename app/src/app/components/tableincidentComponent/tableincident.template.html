@@ -2,9 +2,9 @@
   <bh-header></bh-header>
   <div fxLayout="column wrap" style="padding: 32px;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
     <div fxLayout="column" class="incidenttable">
-      <table mat-table [dataSource]="data" class="table-width-fix">
-        <tr mat-header-row *matHeaderRowDef="[&apos;id&apos;,&apos;subject&apos;,&apos;description&apos;,&apos;priority&apos;,&apos;incidentdate&apos;]"></tr>
-        <tr mat-row *matRowDef="let row; columns: [&apos;id&apos;,&apos;subject&apos;,&apos;description&apos;,&apos;priority&apos;,&apos;incidentdate&apos;];"></tr>
+      <table mat-table [dataSource]="data" *ngIf="showTable" class="table-width-fix">
+        <tr mat-header-row *matHeaderRowDef="[&apos;id&apos;,&apos;subject&apos;,&apos;description&apos;,&apos;priority&apos;,&apos;date | date&apos;]"></tr>
+        <tr mat-row *matRowDef="let row; columns: [&apos;id&apos;,&apos;subject&apos;,&apos;description&apos;,&apos;priority&apos;,&apos;date | date&apos;];"></tr>
 
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef>Incident ID</th>
@@ -26,9 +26,9 @@
           <td mat-cell *matCellDef="let table; let i = index;">{{table.priority}}</td>
         </ng-container>
 
-        <ng-container matColumnDef="incidentdate">
+        <ng-container matColumnDef="date | date">
           <th mat-header-cell *matHeaderCellDef>Incident Time</th>
-          <td mat-cell *matCellDef="let table; let i = index;">{{table.incidentdate}}</td>
+          <td mat-cell *matCellDef="let table; let i = index;">{{table.date | date}}</td>
         </ng-container>
       </table>
     </div>

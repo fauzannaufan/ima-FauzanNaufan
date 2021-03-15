@@ -20,22 +20,9 @@ import { HeroService } from '../../services/hero/hero.service';
 
 export class tableincidentComponent extends NBaseComponent implements OnInit {
 
-    data = [
-        {
-            id: 1,
-            subject: "Incident One",
-            description: "Small incident",
-            priority: 1,
-            incidentdate: "2021-03-01"
-        },
-        {
-            id: 2,
-            subject: "Incident Two",
-            description: "Big incident",
-            priority: 5,
-            incidentdate: "2021-03-04"
-        }
-    ]
+    showTable = false;
+
+    data = []
 
     constructor(public incs:incidentservice) {
         super();
@@ -46,6 +33,9 @@ export class tableincidentComponent extends NBaseComponent implements OnInit {
     }
 
     async getIncident() {
-        await this.incs.getIncList();
+        let result = await this.incs.getIncList();
+
+        this.showTable = true;
+        this.data = result.local.incidentList;
     }
 }
