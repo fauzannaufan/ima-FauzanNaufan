@@ -31,7 +31,7 @@
             "namespace": "com.neutrinos-training.ima-fauzannaufan",
             "googleMapKey": "AIzaSyCSTnVwijjv0CFRA4MEeS-H6PAQc87LEoU",
             "useDefaultExceptionUI": true,
-            "isIDSEnabled": "false",
+            "isIDSEnabled": "true",
             "SSD_BASE_PATH": "/api",
             "SSD_DEFAULT_PORT": "8081",
             "webAppMountpoint": "web",

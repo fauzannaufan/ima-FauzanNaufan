@@ -15,6 +15,8 @@ window['neutrinos'] = {
 }
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-servicepageComponent
+import { servicepageComponent } from '../components/servicepageComponent/servicepage.component';
 //CORE_REFERENCE_IMPORT-headerComponent
 import { headerComponent } from '../components/headerComponent/header.component';
 //CORE_REFERENCE_IMPORT-tableincidentComponent
@@ -50,6 +52,8 @@ export const appDeclarations = [
   PageNotFoundComponent,
   ArtImgSrcDirective,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-servicepageComponent
+servicepageComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-headerComponent
 headerComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-tableincidentComponent
@@ -84,5 +88,5 @@ export const appProviders = [
 */
 
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
-export const appRoutes = [{path: 'home', component: homeComponent},{path: 'incidentlist', component: tableincidentComponent},{path: '', redirectTo: 'home', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
+export const appRoutes = [{path: 'home', component: homeComponent, canActivate: [NeutrinosAuthGuardService]},{path: 'incidentlist', component: tableincidentComponent, canActivate: [NeutrinosAuthGuardService]},{path: 'service', component: servicepageComponent, canActivate: [NeutrinosAuthGuardService]},{path: '', redirectTo: 'home', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END

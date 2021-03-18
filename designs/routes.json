@@ -2,11 +2,18 @@
     "routes": [
         {
             "path": "home",
-            "component": "homeComponent"
+            "component": "homeComponent",
+            "canActivate": "NeutrinosAuthGuardService"
         },
         {
             "path": "incidentlist",
-            "component": "tableincidentComponent"
+            "component": "tableincidentComponent",
+            "canActivate": "NeutrinosAuthGuardService"
+        },
+        {
+            "path": "service",
+            "component": "servicepageComponent",
+            "canActivate": "NeutrinosAuthGuardService"
         },
         {
             "path": "''",
